@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
-
+import productRoutes from "./routes/productRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -18,6 +18,4 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+app.use("/api/products", productRoutes);
